@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 
 class Desain extends Controller
 {
-    public function index(){
-    	return view('desain');
-    }    
+    public function index($id){
+    	return view('desain',['id_bahan' => $id]);
+    }  
+
+     
+    
+    
 }

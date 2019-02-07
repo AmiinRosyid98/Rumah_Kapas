@@ -1633,7 +1633,7 @@ var FancyProductDesignerOptions = function() {
 		* @type {String}
 		* @default 'templates/'
 		*/
-		templatesDirectory: 'assets/desain/html/',
+		templatesDirectory: 'http://localhost:8000/assets/desain/html/',
 		/**
 		* To add photos from Facebook, you have to set your own Facebook API key.
 		*
@@ -1833,7 +1833,7 @@ var FancyProductDesignerOptions = function() {
 		* @type {String | Object | Boolean}
 		* @default 'lang/default.json'
 		*/
-		langJSON: 'assets/desain/lang/default.json',
+		langJSON: 'http://localhost:8000/assets/desain/lang/default.json',
 		/**
 		* The color palette when the color wheel is displayed.
 		*

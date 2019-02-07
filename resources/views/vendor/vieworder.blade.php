@@ -1,110 +1,129 @@
-@extends('vendor/welcome')
+@extends('welcome')
 
-@section('title','View Order | Welcome')
+@section('title','Detail Order')
 
 @section('isi')
 
-<!--==========================
-    Intro Section
-  ============================-->
-  <section id="intro" class="clearfix">
-    <div class="container">
+<section  id="contact"  style="margin-top: 50px;">
+	<div class="container">
 
-      <div class="intro-img">
-        <img src="assets/img/intro-img.svg" alt="" class="img-fluid">
+		<div class="section-header">
+		  <h3>Detail Order</h3>
+		</div>
+    @foreach ($myorder as $m)
+    <form action="/vendor/bid" method="POST">
+      {{csrf_field()}}
+		<div class="row" style="border-radius:5px;   margin-bottom:25px;padding:20px 15px; -webkit-box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);
+-moz-box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);
+box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);">
+      <div class="col-lg-5">
+
+          <div class="map mb-4 mb-lg-0">
+            <img src="{{ asset('assets/img/portfolio/kemeja.jpg')}}" class="img-fluid" alt="">
+          </div>
+          
       </div>
+			<div class="col-lg-7">
 
-      <div class="intro-info">
-        <h2>Discover<br><span>your</span> CLIENT !</h2>
-        <div>
-          <a href="#about" class="btn-get-started scrollto">Get Started</a>
-          <a href="#services" class="btn-services scrollto">Our Services</a>
-        </div>
-      </div>
+        <div style="margin-top: 15px">
+          <center><h5><b>{{$m->nama_jenis." ".$m->nama_tipe." ".$m->nama_bahan}}</b></h5></center>
+        </div><br>
 
-    </div>
-  </section><!-- #intro -->
+        <div class="row">
+          <div class="col-sm-4">
+            <b>Order Quantity</b>
+          </div>
+          <input type="text" value="{{$id_pesan}}" name="id_pesan">
 
-  <main id="main">
+          <div class="col-sm-8">
+            <div class="row">
 
-    <!--==========================
-      About Us Section
-    ============================-->
-    <section id="about">
-      <div class="container">
+              <div class="form-group col-sm-4 ">
+                <label>XS</label>
+                <input type="text" disabled="" class="form-control" name="xs" id="xs" placeholder=""   data-msg="Please enter a valid email" value="{{$m->xs}}" />
+                <div class="validation"></div>
+              </div>
 
-        
+              <div class="form-group col-sm-4">
+                <label>S</label>
+                <input type="text" disabled="" class="form-control" name="s" id="s" placeholder="" data-msg="Please enter a valid email" value="{{$m->s}}" />
+                <div class="validation"></div>
+              </div>
 
-        <div class="row about-container">
+              <div class="form-group col-sm-4">
+                <label>M</label>
+                <input type="text" disabled="" class="form-control" name="m" id="m" placeholder=""   data-msg="Please enter a valid email" value="{{$m->m}}"/>
+                <div class="validation"></div>
+              </div>
 
-          <div class="col-lg-6 content order-lg-1 order-2">
-          	<div>
-          		<h4>New Projects</h4>
-          	</div>
-          	<hr>
+            </div>
             
+						<div class="row">
+						  <div class="form-group col-sm-4">
+						    	<label>L</label>
+						      <input type="text" disabled="" class="form-control" name="l" id="l" placeholder=""   data-msg="Please enter a valid email" value="{{$m->l}}" />
+						      <div class="validation"></div>
+              </div>
+              
+						  <div class="form-group col-sm-4">
+						    	<label>XL</label>
+						      <input type="text" disabled="" class="form-control" name="xl" id="xl" placeholder=""   data-msg="Please enter a valid email" value="{{$m->xl}}" />
+						      <div class="validation"></div>
+              </div>
+              
+						  <div class="form-group col-sm-4">
+						    	<label>XXL</label>
+						      <input type="text" disabled="" class="form-control" name="xxl" id="xxl" placeholder=""   data-msg="Please enter a valid email" value="{{$m->xxl}}" />
+						      <div class="validation"></div>
+              </div>
+              
+						</div>
+					</div>
+	              
+        </div>
+        
+        <div class="row">
+          <div class="col-sm-4">
+            <b>Tanggal Jadi</b>
           </div>
+          <div class="col-sm-8">
+            {{$m->tanggal_jadi}}
+          </div>
+	              
+        </div>
+        
+        <div class="row">
+          <div class="col-sm-4">
+            <b>Alamat</b>
+          </div>
+          <div class="col-sm-8">
+            {{$m->alamat." Desa ".$m->desa." Kecamatan ".$m->kecamatan." Kabupaten ".$m->kabupaten." Provinsi ".$m->propinsi.". Kode Pos : ".$m->kode_pos}}
+          </div>
+        </div>
 
-          <div class="col-lg-6 content order-lg-1 order-2">
-          	<div>
-          		<h4>Top Vendors</h4>
-          	</div>
-          	<hr>
+        <div class="row">
+          <div class="col-sm-4">
+              <b>Masukkan Harga</b>
+          </div>
+          <div class="col-sm-8">
+            <input type="number" name="tawaran" class="form-control">
+          </div>
+        </div>
 
-           <div class="row">
-				<div class="col-md-3 col-sm-3 ">
-					<img class="img-responsive img-rounded img-thumbnail" width="100%" src="https://cdn.projects.co.id/upload/usr926e11/201812275c247b78887d0.jpg" />
-				</div>
-				<div class="col-md-9 col-sm-9 col-xs-9 " >
-					<b>Project 1</b><br>
-					Client : Ahmad<br>
-					Due Date : tanggal <br>
-				</div>
+        <div class="row">
+          <div class="col-sm-4">
+          </div>
+          <div class="col-sm-8">
+            <input type="submit"  class="btn btn-primary" value="Bid">
+          </div>
+        </div>
+
 			</div>
-          </div>
+    </div>
+</form>
+		@endforeach
+	</div>
+</section>
 
-          
 
-         
-        </div>
-        <!--
-        <div class="row about-extra">
-          <div class="col-lg-6 wow fadeInUp">
-            <img src="assets/img/about-extra-1.svg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
-            <h4>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h4>
-            <p>
-              Ipsum in aspernatur ut possimus sint. Quia omnis est occaecati possimus ea. Quas molestiae perspiciatis occaecati qui rerum. Deleniti quod porro sed quisquam saepe. Numquam mollitia recusandae non ad at et a.
-            </p>
-            <p>
-              Ad vitae recusandae odit possimus. Quaerat cum ipsum corrupti. Odit qui asperiores ea corporis deserunt veritatis quidem expedita perferendis. Qui rerum eligendi ex doloribus quia sit. Porro rerum eum eum.
-            </p>
-          </div>
-        </div>
-
-        <div class="row about-extra">
-          <div class="col-lg-6 wow fadeInUp order-1 order-lg-2">
-            <img src="assets/img/about-extra-2.svg" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-6 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1">
-            <h4>Neque saepe temporibus repellat ea ipsum et. Id vel et quia tempora facere reprehenderit.</h4>
-            <p>
-             Delectus alias ut incidunt delectus nam placeat in consequatur. Sed cupiditate quia ea quis. Voluptas nemo qui aut distinctio. Cumque fugit earum est quam officiis numquam. Ducimus corporis autem at blanditiis beatae incidunt sunt. 
-            </p>
-            <p>
-              Voluptas saepe natus quidem blanditiis. Non sunt impedit voluptas mollitia beatae. Qui esse molestias. Laudantium libero nisi vitae debitis. Dolorem cupiditate est perferendis iusto.
-            </p>
-            <p>
-              Eum quia in. Magni quas ipsum a. Quis ex voluptatem inventore sint quia modi. Numquam est aut fuga mollitia exercitationem nam accusantium provident quia.
-            </p>
-          </div>
-          
-        </div>-->
-
-      </div>
-    </section><!-- #about -->
-
-    
 @endsection

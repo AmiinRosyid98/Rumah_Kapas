@@ -1,136 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V5</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="login/images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/vendor/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="login/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="login/vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/css/util.css">
-	<link rel="stylesheet" type="text/css" href="login/css/main.css">
-<!--===============================================================================================-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="daftar/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="daftar/css/style.css">
 </head>
 <body>
-	
-	<div class="limiter">
-		<div class="container-login100" style="background-image: url('login/images/bg-01.jpg');">
-			<div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
-				<form class="login100-form validate-form flex-sb flex-w" action="cek_login" method="post">
-					{{ csrf_field() }}
-					<span class="login100-form-title p-b-53">
-						Sign In With
-					</span>
+    <div class="main">
+        <!-- Sing in  Form -->
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="daftar/images/gambar3.png" alt="sing up image"></figure>
+                        <a href="regist" class="signup-image-link">Create an account</a>
+                    </div>
+                    
+                    <div class="signin-form">
+                        <h2 class="form-title">Login</h2>
+                        <form method="POST" action="cek_login" class="register-form" id="login-form">
+                            @csrf
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="username" id="your_name" placeholder="Your Name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password" id="your_pass" placeholder="Password"/>
+                            </div>
+                            <center><span style="color:red" class="error">{{Session::get("alert")}}</span></center>
+                            <div class="form-group">
+                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit"  class="form-submit" value="Log in"/>
+                            </div>
+                        </form>
+                        <!--<div class="social-login">
+                            <span class="social-label">Or login with</span>
+                            <ul class="socials">
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                            </ul>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </section>
 
-					<a href="#" class="btn-face m-b-20">
-						<i class="fa fa-facebook-official"></i>
-						Facebook
-					</a>
+    </div>
 
-					<a href="#" class="btn-google m-b-20">
-						<img src="login/images/icons/icon-google.png" alt="GOOGLE">
-						Google
-					</a>
-					@if ($errors->any())
-		                <div class="alert alert-danger">
-		                    <ul>
-		                        @foreach ($errors->all() as $error)
-		                            <li>{{ $error }}</li>
-		                        @endforeach
-		                    </ul>
-		                </div>
-					@endif
-
-
-					@if(\Session::has('alert'))
-		                <div class="alert alert-danger" style="width: 100%">
-		                    <div>{{Session::get('alert')}}</div>
-		                </div>
-		            @endif
-		            @if(\Session::has('alert-success'))
-		                <div class="alert alert-success" style="width: 100%">
-		                    <div>{{Session::get('alert-success')}}</div>
-		                </div>
-					@endif
-				
-						<div class="p-t-31 p-b-9">
-							<span class="txt1">
-								Username
-							</span>
-						</div>
-					
-						<div class="wrap-input100 validate-input" data-validate = "Username tidak boleh kosong">
-							<input class="input100" type="text" name="username" >
-							<span class="focus-input100"></span>
-						</div>
-						
-						<div class="p-t-13 p-b-9">
-							<span class="txt1">
-								Password
-							</span>
-
-							<a href="#" class="txt2 bo1 m-l-5">
-								Forgot?
-							</a>
-						</div>
-						<div class="wrap-input100 validate-input" data-validate = "Password tidak boleh kosong">
-							<input class="input100" type="password" name="password" >
-							<span class="focus-input100"></span>
-						</div>
-
-						<div class="container-login100-form-btn m-t-17">
-							<input type="submit" class="login100-form-btn" value="SIgn Ins">
-						</div>
-
-					<div class="w-full text-center p-t-55">
-						<span class="txt2">
-							Not a member?
-						</span>
-
-						<a href="#" class="txt2 bo1">
-							Sign up now
-						</a>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	
-
-	<div id="dropDownSelect1"></div>
-	
-<!--===============================================================================================-->
-	<script src="login/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="login/vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="login/vendor/bootstrap/js/popper.js"></script>
-	<script src="login/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="login/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="login/vendor/daterangepicker/moment.min.js"></script>
-	<script src="login/vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="login/vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="login/js/main.js"></script>
-
-</body>
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
