@@ -61,7 +61,7 @@
                     </div>
                     <div class="signup-image">
                         <figure><img src="daftar/images/gambar2.png" alt="sing up image"></figure>
-                        <a href="signin" class="signup-image-link">I am already member</a>
+                        <a href="signin" class="signup-image-link">I am already member.</a>
                     </div>
                 </div>
             </div>
