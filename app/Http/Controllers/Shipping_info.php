@@ -11,12 +11,13 @@ use Illuminate\Support\Facades\Session;
 class Shipping_info extends Controller
 {
     
-    public function index(){
+    public function index($id){
     	$id_cust = Session::get('id_cust');
     	$customer = DB::table('customer')->where('id_cust',$id_cust)->get();
     	$provinsi = DB::table('provinces')->get();
     	return view('shipping_info',['customer' => $customer,
-    								 'provinsi' => $provinsi ]);
+									 'provinsi' => $provinsi,
+									 'id_bahan' => $id,]);
     }
 
     public function tambah_pesanan(Request $request){
@@ -45,7 +46,8 @@ class Shipping_info extends Controller
                 'id_kelurahan' => $request->id_kelurahan,
                 'kode_pos' => $request->kode_pos,
                 'ket_pesan' => "Keterangan",
-                'id_cust' => $request->id_cust,
+				'id_cust' => $request->id_cust,
+				'id_bahan' => $request->id_bahan,
                 'id_desain' => "0",
                 'xs' => $request->xs,
                 's' => $request->s,
@@ -57,7 +59,7 @@ class Shipping_info extends Controller
 				
 			]);
 	// alihkan halaman ke halaman pegawai
-	return redirect('/');
+	return redirect('/myorder');
     }
 
     public function select_kota(Request $request){
@@ -107,7 +109,7 @@ class Shipping_info extends Controller
         foreach ($bahan as $b ) {
             $lists .= "<div class='col-lg-3 col-md-6 portfolio-item filter-kemeja' data-wow-delay='0.1s'>
                         <div class='portfolio-wrap'>
-                          <a href='desain'><img src='assets/img/portfolio/kemeja.jpg' class='img-fluid' alt=''></a>
+                          <a href='desain/$b->id_bahan'><img src='assets/img/portfolio/kemeja.jpg' class='img-fluid' alt=''></a>
                         </div>
                         <b>$b->bahan</b>
                         <ul style='margin-left: -20px;'>

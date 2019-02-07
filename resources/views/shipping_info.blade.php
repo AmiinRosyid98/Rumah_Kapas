@@ -9,7 +9,7 @@
         <div class="section-header">
           <h3>Shipping Information</h3>
         </div>
-        <form action="shipping_info/tambah_pesanan" method="post" >
+        <form action="/shipping_info/tambah_pesanan" method="post" >
           @foreach($customer as $c)
           {{ csrf_field() }}
         <div class="row wow fadeInUp">
@@ -29,6 +29,7 @@
               	<center><label><b>Tanggal Jadi</b></label></center>
                 <input type="text" class="form-control" name="tanggal_jadi" id="email" placeholder="YYYY-MM-DD"  data-msg="Please enter a valid email" />
                 <input type="hidden" class="form-control" name="id_cust" id="" value="{{Session::get('id_cust')}}" />
+                <input type="hidden" class="form-control" name="id_bahan" id="" value="{{ $id_bahan }}" />
                 <div class="validation"></div>
               </div>
 
@@ -181,7 +182,7 @@
           //$("#loading").show(); // Tampilkan loadingnya          
           $.ajax({        
             type: "POST", // Method pengiriman data bisa dengan GET atau POST        
-            url: "shipping_info/select_kota", // Isi dengan url/path file php yang dituju        
+            url: "/shipping_info/select_kota", // Isi dengan url/path file php yang dituju        
             data: {id_provinsi : $("#provinsi").val(),
             "_token": "{{ csrf_token() }}",}, // data yang akan dikirim ke file yang dituju        
             dataType: "json",        
@@ -213,7 +214,7 @@
           //$("#loading").show(); // Tampilkan loadingnya          
           $.ajax({        
             type: "POST", // Method pengiriman data bisa dengan GET atau POST        
-            url: "shipping_info/select_kecamatan", // Isi dengan url/path file php yang dituju        
+            url: "/shipping_info/select_kecamatan", // Isi dengan url/path file php yang dituju        
             data: {id_kota : $("#kota").val(),
             "_token": "{{ csrf_token() }}",}, // data yang akan dikirim ke file yang dituju        
             dataType: "json",        
@@ -246,7 +247,7 @@
           //$("#loading").show(); // Tampilkan loadingnya          
           $.ajax({        
             type: "POST", // Method pengiriman data bisa dengan GET atau POST        
-            url: "shipping_info/select_kelurahan", // Isi dengan url/path file php yang dituju        
+            url: "/shipping_info/select_kelurahan", // Isi dengan url/path file php yang dituju        
             data: {id_kecamatan : $("#kecamatan").val(),
             "_token": "{{ csrf_token() }}",}, // data yang akan dikirim ke file yang dituju        
             dataType: "json",        

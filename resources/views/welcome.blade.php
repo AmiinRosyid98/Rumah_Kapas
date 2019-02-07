@@ -8,40 +8,40 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ asset('assets/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="assets/lib/animate/animate.min.css" rel="stylesheet">
-  <link href="assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+  <link href="{{ asset('assets/lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/lib/animate/animate.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/lib/ionicons/css/ionicons.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 
   <!-- Main Stylesheet File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
-  <link rel="stylesheet" type="text/css" href="assets/desain/css/main.css">
+  <link rel="stylesheet" type="text/css" href="{{ asset('assets/desain/css/main.css') }}">
 
     <!-- The CSS for the plugin itself - required -->
-  <link rel="stylesheet" type="text/css" href="assets/desain/css/FancyProductDesigner-all.min.css" />
+  <link rel="stylesheet" type="text/css" href="{{ asset('assets/desain/css/FancyProductDesigner-all.min.css') }}" />
 
     <!-- Include js files -->
- <script src="assets/lib/jquery/jquery.min.js"></script>
-  <script src="assets/desain/js/jquery-ui.min.js" type="text/javascript"></script>
+ <script src="{{ asset('assets/lib/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('assets/desain/js/jquery-ui.min.js') }}" type="text/javascript"></script>
 
   <!-- HTML5 canvas library - required -->
-  <script src="assets/desain/js/fabric.min.js" type="text/javascript"></script>
+  <script src="{{ asset('assets/desain/js/fabric.min.js') }}" type="text/javascript"></script>
   <!-- The plugin itself - required -->
-  <script src="assets/desain/js/plugins.js" type="text/javascript"></script>
-    <script src="assets/desain/js/FancyProductDesigner.js" type="text/javascript"></script>
+  <script src="{{ asset('assets/desain/js/plugins.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/desain/js/FancyProductDesigner.js') }}" type="text/javascript"></script>
 
 
     <script type="text/javascript">
@@ -153,7 +153,7 @@
       <div class="logo float-left">
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
-        <a href="#intro" class="scrollto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+        <a href="#intro" class="scrollto"><img src="{{ asset('assets/img/logo.png" alt="" class="img-fluid"></a>
       </div>
 
       <nav class="main-nav float-right d-none d-lg-block">
@@ -296,18 +296,18 @@
 
   <!-- JavaScript Libraries -->
   
-  <script src="assets/lib/jquery/jquery-migrate.min.js"></script>
-  <script src="assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/lib/easing/easing.min.js"></script>
-  <script src="assets/lib/mobile-nav/mobile-nav.js"></script>
-  <script src="assets/lib/wow/wow.min.js"></script>
-  <script src="assets/lib/waypoints/waypoints.min.js"></script>
-  <script src="assets/lib/counterup/counterup.min.js"></script>
-  <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="assets/lib/isotope/isotope.pkgd.min.js"></script>
-  <script src="assets/lib/lightbox/js/lightbox.min.js"></script>
+  <script src="{{ asset('assets/lib/jquery/jquery-migrate.min.js') }}"></script>
+  <script src="{{ asset('assets/lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('assets/lib/easing/easing.min.js') }}"></script>
+  <script src="{{ asset('assets/lib/mobile-nav/mobile-nav.js') }}"></script>
+  <script src="{{ asset('assets/lib/wow/wow.min.js') }}"></script>
+  <script src="{{ asset('assets/lib/waypoints/waypoints.min.js') }}"></script>
+  <script src="{{ asset('assets/lib/counterup/counterup.min.js') }}"></script>
+  <script src="{{ asset('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+  <script src="{{ asset('assets/lib/isotope/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ asset('assets/lib/lightbox/js/lightbox.min.js') }}"></script>
   <!-- Contact Form JavaScript File -->
-  <script src="assets/contactform/contactform.js"></script>
+  <script src="{{ asset('assets/contactform/contactform.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
   <script type="text/javascript">
@@ -318,7 +318,7 @@
 
 
   <!-- Template Main Javascript File -->
-  <script src="assets/js/main.js"></script>
+  <script src="{{ asset('assets/js/main.js') }}"></script>
 
 </body>
 </html>

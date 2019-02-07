@@ -48,7 +48,7 @@
       					<img class="img-responsive img-rounded img-thumbnail" width="100%" src="https://cdn.projects.co.id/upload/usr926e11/201812275c247b78887d0.jpg" />
       				</div>
       				<div class="col-md-9 col-sm-9 col-xs-9 " >
-      					<a href="vendor/view_order"><b>Project 1</b></a><br>
+      					<a href="vendor/detail_order/{{$o->id_pesan}}"><b>{{$o->nama_jenis." ".$o->nama_tipe." ".$o->nama_bahan}}</b></a><br>
       					Client : {{$o->nama}}<br>
       					Due Date : {{$o->tanggal_jadi}} <br>
       				</div>
