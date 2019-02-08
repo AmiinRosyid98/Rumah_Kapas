@@ -153,7 +153,7 @@
       <div class="logo float-left">
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
-        <a href="#intro" class="scrollto"><img src="{{ asset('assets/img/logo.png" alt="" class="img-fluid"></a>
+        <a href="#intro" class="scrollto"><img src="{{ asset('assets/logo/logo-header.png') }}" alt="" class="img-fluid"  style="width:100%"></a>
       </div>
 
       <nav class="main-nav float-right d-none d-lg-block">

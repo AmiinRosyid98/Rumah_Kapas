@@ -10,7 +10,9 @@
 		<div class="section-header">
 		  <h3>My Order</h3>
 		</div>
+		<!--
 		@foreach ($myorder as $m)
+		
 		<div class="row" style="border-radius:5px;   margin-bottom:25px;padding:20px 15px; -webkit-box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);
 -moz-box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);
 box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);">
@@ -113,7 +115,40 @@ box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);">
 					<?php } ?>
 			</div>
 		</div>
-		@endforeach
+		@endforeach-->
+		<style>
+			.card{
+				border-radius:5px; 
+				margin-bottom:25px; 
+				-webkit-box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);
+				-moz-box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);
+				box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);
+			}
+			.card-content{
+				padding : 10px;
+				padding-bottom : 25px;
+			}
+			.card-content p span{
+				font-size:14px;
+			}
+		</style>
+		<div class="row">
+			@foreach ($myorder as $m)
+				<div class="col-md-3">
+					<div class="card">
+						<img src="{{ asset('assets/img/portfolio/kemeja.jpg')}}" class="img-fluid" alt="">
+						<div class="card-content">
+							<center><b>{{$m->nama_jenis." ".$m->nama_tipe." ".$m->nama_bahan}}</b></center>
+							<p>
+							<span>Pemesan : {{$m->nama}}</span> <br>
+							<span>Tanggal jadi : {{$m->tanggal_jadi}}</span>
+							</p>
+							<center><a href="/myorder/detail_order/{{$m->id_pesan}}"><button class="btn btn-primary btn-sm">Detail</button></a></center>
+						</div>
+					</div>
+				</div>
+			@endforeach
+		</div>
 	</div>
 </section>
 

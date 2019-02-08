@@ -45,6 +45,7 @@ Route::post('shipping_info/select_bahan', 'Shipping_info@select_bahan');
 Route::post('shipping_info/tambah_pesanan', 'Shipping_info@tambah_pesanan');
 Route::get('shipping_info/{id}', 'Shipping_info@index');
 Route::get('myorder', 'Myorder@index');
+Route::get('myorder/detail_order/{id}', 'Myorder@detail_order');
 Route::get('vendor', 'Vendor@index');
 Route::get('/vendor/detail_order/{id}', 'Vendor@detail_order');
 Route::get('regist','regist@index');

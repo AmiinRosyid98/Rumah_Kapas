@@ -47,7 +47,7 @@ class Vendor extends Controller
     public function bid(Request $request){
         
         DB::table('bid')->insert([
-            'id_bid' => 2,
+            'id_bid' => 3,
     		'id_pesan' => $request->id_pesan,
 			'id_vendor' => Session::get('id_vendor'),
 			'nominal_bid' => $request->tawaran,
