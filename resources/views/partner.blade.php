@@ -15,7 +15,7 @@
 
 <p>Cari Data Pegawai :</p>
 	<form action="/partner/cari" method="GET">
-		<input type="text" name="cari" placeholder="Cari Pegawai .." >
+		<input type="text" name="cari" placeholder="Cari Pegawai ..." >
 		<input type="submit" value="CARI">
 	</form>
 		
