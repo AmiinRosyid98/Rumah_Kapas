@@ -40,6 +40,15 @@ class Myorder extends Controller
                 ->where('pesan.id_cust',$id_cust)
                 ->where('pesan.id_pesan',$id)
                 ->get();
-    	return view('detail_order',['myorder' => $myorder,]);
+        $status_2 = DB::table('bid')->where('bid.id_pesan',$id)->where('bid.status_bid',2)->first();
+    	return view('detail_order',['myorder' => $myorder,'status_2'=>$status_2,'id_pesan'=>$id]);
+    }
+
+    public function rekrut_vendor($id_bid){
+        DB::table('bid')->where('id_bid',$id_bid)->update([
+    		'status_bid' => 2
+    	]);
+
+    	return redirect()->back();
     }
 }

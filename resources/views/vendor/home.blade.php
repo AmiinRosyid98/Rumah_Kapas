@@ -34,7 +34,21 @@
       <div class="container">
 
         
+        <style>
+          .label-success{
+            background-color:green; 
+            color: white;
+            padding : 1px 4px;
+            border-radius:2px;
+          }
 
+          .label-danger{
+            background-color:red; 
+            color: white;
+            padding : 1px 4px;
+            border-radius:2px;
+          }
+        </style>
         <div class="row about-container">
 
           <div class="col-lg-6 content order-lg-1 order-2">
@@ -49,8 +63,17 @@
       				</div>
       				<div class="col-md-9 col-sm-9 col-xs-9 " >
       					<a href="vendor/detail_order/{{$o->id_pesan}}"><b>{{$o->nama_jenis." ".$o->nama_tipe." ".$o->nama_bahan}}</b></a><br>
-      					Client : {{$o->nama}}<br>
-      					Due Date : {{$o->tanggal_jadi}} <br>
+      					<div style=" font-size:13px;">
+                  <b>Client</b> : {{$o->nama}}<br>
+                  <b>Batas Penawaran</b> : 
+                    @if (date("Y-m-d")>$o->duedate)
+                    <span class="label label-danger">{{$o->duedate}}</span> <br>
+                    @else 
+                    <span class="label label-success">{{$o->duedate}}</span> <br>
+                    @endif
+                  <b>Deadline</b> : {{$o->tanggal_jadi}} <br>
+                </div>
+                    					
       				</div>
       			</div>
             @endforeach

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use DateTime;
 
 class Shipping_info extends Controller
 {
@@ -36,7 +37,9 @@ class Shipping_info extends Controller
 			'alamat' => 'required',
 			'password' => 'required',
 			'konfirmasi_password' => 'same:password',
-    	 ],$messages);*/
+		 ],$messages);*/
+		 
+		 $date = new DateTime('+3 day');
     		DB::table('pesan')->insert([
                 'nama' => $request->nama,
                 'email' => $request->email,
@@ -55,7 +58,7 @@ class Shipping_info extends Controller
                 'l' => $request->l,
                 'xl' => $request->xl,
                 'xxl' => $request->xxl,
-                'custom' => "0",
+                'duedate' => $date->format('Y-m-d'),
 				
 			]);
 	// alihkan halaman ke halaman pegawai

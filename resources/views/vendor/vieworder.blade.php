@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('vendor/welcome')
 
 @section('title','Detail Order')
 
@@ -13,7 +13,7 @@
     @foreach ($myorder as $m)
     <form action="/vendor/bid" method="POST">
       {{csrf_field()}}
-		<div class="row" style="border-radius:5px;   margin-bottom:25px;padding:20px 15px; -webkit-box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);
+		<div class="row" style="border-radius:5px; border:1px solid #c7c8c9;   margin-bottom:25px;padding:20px 15px; -webkit-box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);
 -moz-box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);
 box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);">
       <div class="col-lg-5">
@@ -33,7 +33,7 @@ box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);">
           <div class="col-sm-4">
             <b>Order Quantity</b>
           </div>
-          <input type="text" value="{{$id_pesan}}" name="id_pesan">
+          <input type="hidden" value="{{$id_pesan}}" name="id_pesan">
 
           <div class="col-sm-8">
             <div class="row">
@@ -90,7 +90,7 @@ box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);">
             {{$m->tanggal_jadi}}
           </div>
 	              
-        </div>
+        </div><br>
         
         <div class="row">
           <div class="col-sm-4">
@@ -99,16 +99,18 @@ box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);">
           <div class="col-sm-8">
             {{$m->alamat." Desa ".$m->desa." Kecamatan ".$m->kecamatan." Kabupaten ".$m->kabupaten." Provinsi ".$m->propinsi.". Kode Pos : ".$m->kode_pos}}
           </div>
-        </div>
-
+        </div><br>
+        @if (date("Y-m-d")<$m->duedate)
         <div class="row">
           <div class="col-sm-4">
-              <b>Masukkan Harga</b>
+              <b>Masukkan Harga {{$m->duedate}}</b>
           </div>
           <div class="col-sm-8">
             <input type="number" name="tawaran" class="form-control">
           </div>
         </div>
+
+       
 
         <div class="row">
           <div class="col-sm-4">
@@ -117,8 +119,81 @@ box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);">
             <input type="submit"  class="btn btn-primary" value="Bid">
           </div>
         </div>
+        @else 
+        <style>
+          .label-success{
+            background-color:green; 
+            color: white;
+            padding : 1px 4px;
+            border-radius:2px;
+          }
+
+          .label-danger{
+            background-color:red; 
+            color: white;
+            padding : 1px 4px;
+            border-radius:2px;
+          }
+        </style>
+        <div><center><span class="label label-danger">Batas Waktu Bid telah habis</span></center></div>
+        @endif
 
 			</div>
+
+
+      <style>
+                .card{
+                    border-radius:5px; 
+                    margin-bottom:15px; 
+                    -webkit-box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);
+                    -moz-box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);
+                    box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);
+                }
+                .card-content{
+                    padding : 10px;
+                    padding-bottom : 25px;
+                }
+                .card-content p span{
+                    font-size:14px;
+                }
+            </style>
+
+            <div class="col-lg-12" style="margin-top:25px;">
+                <div class=" " style="border:1px solid #accaf9; border-radius : 4px;">
+                    <div style="padding-top: 30px; border:1px solid #accaf9; background-color:#508ff4" >
+                        <center><h4 style="color:white"><b>Penawaran</b></h4></center>
+                    </div>
+                    <div class="row" style="padding:9px;">
+                    <!--<div class="row" style="border:1px solid #dce0e5; margin-bottom:10px; padding: 5px 17px; border-radius: 7px; background-image: linear-gradient( 135deg, #FAD7A1 10%, #E96D71 100%); ">-->
+                        <?php 
+                            $vendor = DB::table('bid')
+                                                ->join('vendor', 'bid.id_vendor', '=', 'vendor.id_vendor')
+                                                ->select('bid.*','vendor.nama_vendor','vendor.alamat_vendor','vendor.hp_vendor')										
+                                                ->where('bid.id_pesan',$id_pesan)->get();
+                            foreach($vendor as $v){
+                        ?>
+                         
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="{{ asset('assets/img/vendor.png')}}" class="img-fluid" alt="">
+                                <div class="card-content" style="padding:10px;">
+                                    <center><?php echo $v->nama_vendor ?></center>
+                                    <p>
+                                    <span>Alamat : <?php echo $v->alamat_vendor ?></span> <br>
+                                    <span>No. Hp : <?php echo $v->hp_vendor ?></span><br>
+                                    <span>Harga : <b>Rp. <?php echo $v->nominal_bid ?></b></span>
+                                    </p>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                         
+                             
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
     </div>
 </form>
 		@endforeach
