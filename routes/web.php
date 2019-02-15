@@ -56,3 +56,4 @@ Route::post('/daftarvendor/store','daftarvendor@store');
 Route::post('/vendor/bid','Vendor@bid');
 
 Route::get('/myorder/rekrut_vendor/{id_bid}', 'Myorder@rekrut_vendor');
+Route::get('/myorder/cancel_bid/{id_pesan}', 'Myorder@cancel_bid');

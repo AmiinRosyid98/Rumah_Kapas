@@ -51,4 +51,12 @@ class Myorder extends Controller
 
     	return redirect()->back();
     }
+
+    public function cancel_bid($id_pesan){
+        DB::table('bid')->where('id_pesan',$id_pesan)->update([
+    		'status_bid' => 1
+    	]);
+
+    	return redirect()->back();
+    }
 }

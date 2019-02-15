@@ -283,9 +283,14 @@ box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);">
 								</ul>
 							</div>
               <div >
-              <center><a href="/myorder/cancel_bid/{{$id_pesan}}"  style="margin-bottom:40px;" class="btn btn-danger btn-sm">Cancel</a></center>
+              <center><a href="/myorder/cancel_bid/{{$id_pesan}}"  style="margin-bottom:40px;" class="btn btn-danger btn-sm cancel_bid">Cancel</a></center>
               </div>
 						</div>
+            <script>
+                  $(".cancel_bid").on("click",function(){
+                    return confirm("Apakah Anda yakin ?")
+              })
+            </script>
                          
                              
                         <?php } ?>
