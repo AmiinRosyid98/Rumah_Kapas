@@ -103,7 +103,7 @@ box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.58);">
         @if (date("Y-m-d")<$m->duedate)
         <div class="row">
           <div class="col-sm-4">
-              <b>Masukkan Harga {{$m->duedate}}</b>
+              <b>Masukkan Harga </b>
           </div>
           <div class="col-sm-8">
             <input type="number" name="tawaran" class="form-control">
